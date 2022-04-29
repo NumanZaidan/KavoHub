@@ -1,9 +1,10 @@
-# 
-  _  __     __      ______    _    _ _    _ ____  
- | |/ /    /\ \    / / __ \  | |  | | |  | |  _ \ 
- | ' /    /  \ \  / / |  | | | |__| | |  | | |_) |
- |  <    / /\ \ \/ /| |  | | |  __  | |  | |  _ < 
- | . \  / ____ \  / | |__| | | |  | | |__| | |_) |
- |_|\_\/_/    \_\/   \____/  |_|  |_|\____/|____/ 
-                                                  
-                                                  
+#Kavo Hub
+Kavo Hub It's PowerFull hubs
+
+Supported Games:
+
+Ninja Legends
+Prison Life
+Break In
+
+If Not Supported Games Will Not works!
