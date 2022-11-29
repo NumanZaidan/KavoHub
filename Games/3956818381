@@ -1,5 +1,3 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-
 local Window = Rayfield:CreateWindow({
         Name = "Kavo Hub V3 | Ninja Legends ",
         LoadingTitle = "Loading Kavo Hub V3 | Ninja Legends",
