@@ -1,0 +1,195 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+        Name = "Kavo Hub V3 | Ninja Legends ",
+        LoadingTitle = "Loading Kavo Hub V3 | Ninja Legends",
+        LoadingSubtitle = "by ⃝⃝#3277",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = "KavoHub", -- Create a custom folder for your hub/game
+            FileName = "KavoHubNinjaLegends"
+        },
+            Discord = {
+                Enabled = true,
+                Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+                RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+            },
+        KeySystem = false, -- Set this to true to use our key system
+        KeySettings = {
+            Title = "Kavo Hub",
+            Subtitle = "Key System",
+            Note = "Join the discord (discord.gg/sirius)",
+            FileName = "KavoHubKey",
+            SaveKey = true,
+            GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+            Key = "kavo_hubisCool"
+        }
+    })
+    
+    local Main = Window:CreateTab("Main", 11615166394) -- Title, Image
+    local MainSection = Main:CreateSection("Main")
+
+    local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
+    local PlayerSection = Player:CreateSection("Player")
+
+    local Settings = Window:CreateTab("Settings", 4859271265) -- Title, Image
+    local SettingsSection = Settings:CreateSection("Settings")
+    
+    local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
+    local ChangeLogSection = ChangeLog:CreateSection("Change Log")
+    local WhatNew = ChangeLog:CreateLabel("Whats New?")
+    local date = ChangeLog:CreateLabel("11/20/2022")
+    local update1 = ChangeLog:CreateLabel("Update 1: Kavo Hub Moved To New UI")
+    local update2 = ChangeLog:CreateLabel("Update 2: Kavo Hub is Now V3")
+    local update3 = ChangeLog:CreateLabel("Update 3: Added FullBright in Settings")
+
+    -- Main
+    local AutoSwing = Main:CreateToggle({
+        Name = "Auto Swing",
+        CurrentValue = false,
+        Flag = "AutoSwingToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(AutoSwingValue)
+            getgenv().autoswing = AutoSwingValue
+            while true do
+                if not getgenv().autoswing then return end
+                for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v:FindFirstChild("ninjitsuGain") then
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                        break
+                    end
+                end
+                    local A_1 = "swingKatana"
+                    local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+                    Event:FireServer(A_1)
+                    wait(0.1)
+            end
+        end,
+    })
+    local AutoSell = Main:CreateToggle({
+        Name = "Auto Sell",
+        CurrentValue = false,
+        Flag = "AutoSellToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(AutoSellValue)
+            getgenv().autosell = AutoSellValue
+            while true do
+                if not getgenv().autosell then return end
+                game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                wait(0.1)
+                game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = CFrame.new(0,0,0)
+                wait(0.1)
+            end
+        end,
+    })
+    local Unlockallislands = Main:CreateButton({
+        Name = "Unlock all islands",
+        Callback = function()
+            local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                wait(0.3)
+            end
+            wait(0.4)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+        end,
+    })
+    local AutoBuyallsword = Main:CreateToggle({
+        Name = "Auto Buy all sword",
+        CurrentValue = false,
+        Flag = "AutoBuyallswordToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(AutoBuyAllSwordValue)
+            getgenv().buyswords = AutoBuyAllSwordValue
+            while true do
+                if not getgenv().buyswords then return end
+                local A_1 = "buyAllSwords"
+                local A_2 = "Blazing Vortex Island"
+                local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+                Event:FireServer(A_1, A_2)
+                wait(0.5)
+            end
+        end,
+    })
+    local AutoBuyallbelts = Main:CreateToggle({
+        Name = "Auto Buy all belts",
+        CurrentValue = false,
+        Flag = "AutoBuyallbeltsToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(AutoBuyallbelts)
+            getgenv().buybelts = AutoBuyallbelts
+            while true do
+                if not getgenv().buybelts then return end
+                local A_1 = "buyAllBelts"
+                local A_2 = "Blazing Vortex Island"
+                local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+                Event:FireServer(A_1, A_2)
+                wait(0.5)
+            end
+        end,
+    })
+    -- Player
+    local WalkSpeed = Player:CreateSlider({
+        Name = "WalkSpeed",
+        Range = {16, 250},
+        Increment = 1,
+        Suffix = "WalkSpeed",
+        CurrentValue = 16,
+        Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(walkspeedvalue)
+            print("Changed to ".. walkspeedvalue.. " WalkSpeed")
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedvalue
+        end,
+    })
+    local JumpPower = Player:CreateSlider({
+        Name = "JumpPower",
+        Range = {50, 250},
+        Increment = 1,
+        Suffix = "Jump Power",
+        CurrentValue = 50,
+        Flag = "JumpPowerSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(jumppowervalue)
+            print("Changed to ".. jumppowervalue.. " JumpPower")
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppowervalue
+        end,
+    })
+    local TpTools = Player:CreateButton({
+        Name = "Tp Tools",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+        end,
+    })
+    local FullBright = Player:CreateToggle({
+        Name = "FullBright",
+        CurrentValue = false,
+        Flag = "FullBrightToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        end,
+    })
+    local Fly = Player:CreateButton({
+        Name = "Fly (E)",
+        Callback = function()
+            Rayfield:Notify({
+                Title = "Fly (E)",
+                Content = "Press E TO Turn On/Off",
+                Duration = 6.5,
+                Image = 4483362458,
+                Actions = { -- Notification Buttons
+                    Ignore = {
+                        Name = "Okay!",
+                        Callback = function()
+                            print("The user tapped Okay!")
+                        end
+                    },
+                },
+            })
+            loadstring(game:HttpGet(('https://pastebin.com/raw/q6S4AcxJ'),true))()
+        end,
+    })
+
+    -- Settings 
+    local Close = Settings:CreateButton({
+        Name = "Kill UI",
+        Callback = function()
+            Rayfield:Destroy()  
+        end,
+    })
+
+    Rayfield:LoadConfiguration()
