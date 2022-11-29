@@ -1,0 +1,152 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+        Name = "Kavo Hub V3 | Prison Life ",
+        LoadingTitle = "Loading Kavo Hub V3 | Prison Life",
+        LoadingSubtitle = "by ⃝⃝#3277",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = "KavoHub", -- Create a custom folder for your hub/game
+            FileName = "KavoHubPrisonLife"
+        },
+            Discord = {
+                Enabled = true,
+                Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+                RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+            },
+        KeySystem = false, -- Set this to true to use our key system
+        KeySettings = {
+            Title = "Kavo Hub",
+            Subtitle = "Key System",
+            Note = "Join the discord (discord.gg/sirius)",
+            FileName = "KavoHubKey",
+            SaveKey = true,
+            GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+            Key = "kavo_hubisCool"
+        }
+    })
+    
+    local Main = Window:CreateTab("Main", 11615166394) -- Title, Image
+    local MainSection = Main:CreateSection("Main")
+
+    local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
+    local PlayerSection = Player:CreateSection("Player")
+
+    local Settings = Window:CreateTab("Settings", 4859271265) -- Title, Image
+    local SettingsSection = Settings:CreateSection("Settings")
+    
+    local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
+    local ChangeLogSection = ChangeLog:CreateSection("Change Log")
+    local WhatNew = ChangeLog:CreateLabel("Whats New?")
+    local date = ChangeLog:CreateLabel("11/20/2022")
+    local update1 = ChangeLog:CreateLabel("Update 1: Kavo Hub Moved To New UI")
+    local update2 = ChangeLog:CreateLabel("Update 2: Kavo Hub is Now V3")
+    local update3 = ChangeLog:CreateLabel("Update 3: Added FullBright in Settings")
+
+    local GiveGun = Main:CreateDropdown({
+        Name = "Give Guns",
+        Options = {"M9", "Remington 870", "AK-47"},
+        CurrentOption = "M9",
+        Flag = "GiveGunDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(GiveGun)
+            local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[GiveGun].ITEMPICKUP
+            local Event = game:GetService("Workspace").Remote.ItemHandler
+            Event:InvokeServer(A_1)
+        end,
+    
+    })
+    local GunMod = Main:CreateDropdown({
+        Name = "Gun Mod",
+        Options = {"M9", "Remington 870", "AK-47"},
+        CurrentOption = "M9",
+        Flag = "GunModDrownDown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(GiveGun)
+            local module = nil
+            if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(GiveGun) then
+                module = require(game:GetService("Players").LocalPlayer.Backpack[GiveGun].GunStates)
+            elseif game:GetService("Players").LocalPlayer.Character:FirstChild(GiveGun) then
+                module = require(game:GetService("Players").LocalPlayer.Character[GiveGun].GunStates)
+            end
+            if module ~= nil then
+                module["MaxAmmo"] = math.huge
+                module["CurrentAmmo"] = math.huge
+                module["StoredAmmo"] = math.huge
+                module["FireRate"] = 0.00000000001
+                module["Spread"] = 0
+                module["Range"] = math.huge
+                module["Bullets"] = 10
+                module["ReloadTime"] = 0.0000000001
+                module["AutoFire"] = true
+            end
+        end,
+    
+    })
+
+    -- Player
+    local WalkSpeed = Player:CreateSlider({
+        Name = "WalkSpeed",
+        Range = {16, 250},
+        Increment = 1,
+        Suffix = "WalkSpeed",
+        CurrentValue = 16,
+        Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(walkspeedvalue)
+            print("Changed to ".. walkspeedvalue.. " WalkSpeed")
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedvalue
+        end,
+    })
+    local JumpPower = Player:CreateSlider({
+        Name = "JumpPower",
+        Range = {50, 250},
+        Increment = 1,
+        Suffix = "Jump Power",
+        CurrentValue = 50,
+        Flag = "JumpPowerSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(jumppowervalue)
+            print("Changed to ".. jumppowervalue.. " JumpPower")
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppowervalue
+        end,
+    })
+    local FullBright = Player:CreateToggle({
+        Name = "FullBright",
+        CurrentValue = false,
+        Flag = "FullBrightToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        end,
+    })
+    local TpTools = Player:CreateButton({
+        Name = "Tp Tools",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+        end,
+    })
+    local Fly = Player:CreateButton({
+        Name = "Fly (E)",
+        Callback = function()
+            Rayfield:Notify({
+                Title = "Fly (E)",
+                Content = "Press E TO Turn On/Off",
+                Duration = 6.5,
+                Image = 4483362458,
+                Actions = { -- Notification Buttons
+                    Ignore = {
+                        Name = "Okay!",
+                        Callback = function()
+                            print("The user tapped Okay!")
+                        end
+                    },
+                },
+            })
+            loadstring(game:HttpGet(('https://pastebin.com/raw/q6S4AcxJ'),true))()
+        end,
+    })
+
+     -- Settings 
+    local Close = Settings:CreateButton({
+        Name = "Kill UI",
+        Callback = function()
+             Rayfield:Destroy()  
+           end,
+    })
+    Rayfield:LoadConfiguration()
