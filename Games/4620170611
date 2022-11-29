@@ -1,0 +1,350 @@
+    local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+    local Window = Rayfield:CreateWindow({
+        Name = "Kavo Hub V3 | Break in (Story)(Game)",
+        LoadingTitle = "Loading Kavo Hub V3 | Break in (Story)(Game)",
+        LoadingSubtitle = "by ⃝⃝#3277",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = "KavoHub", -- Create a custom folder for your hub/game
+            FileName = "KavoHubBreakIn(Story)(Game)"
+        },
+            Discord = {
+                Enabled = true,
+                Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+                RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+            },
+        KeySystem = false, -- Set this to true to use our key system
+        KeySettings = {
+            Title = "Kavo Hub",
+            Subtitle = "Key System",
+            Note = "Join the discord (discord.gg/sirius)",
+            FileName = "KavoHubKey",
+            SaveKey = true,
+            GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+            Key = "kavo_hubisCool"
+        }
+    })
+
+    -- Tabs
+    local GiveItem = Window:CreateTab("Give Item", 11615166394) -- Title, Image
+    local GiveItemSection = GiveItem:CreateSection("Give Item")
+
+    local Teleport = Window:CreateTab("Teleport", 11615166394) -- Title, Image
+    local TeleportSection = Teleport:CreateSection("Teleport")
+
+    local Remote = Window:CreateTab("Remote", 11615166394) -- Title, Image
+    local RemoteSection = Remote:CreateSection("Remote")
+
+    local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
+    local PlayerSection = Player:CreateSection("Player")
+
+    local Settings = Window:CreateTab("Settings", 4859271265) -- Title, Image
+    local SettingsSection = Settings:CreateSection("Settings")
+    
+    local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
+    local ChangeLogSection = ChangeLog:CreateSection("Change Log")
+    local WhatNew = ChangeLog:CreateLabel("Whats New?")
+    local date = ChangeLog:CreateLabel("11/20/2022")
+    local update1 = ChangeLog:CreateLabel("Update 1: Kavo Hub Moved To New UI")
+    local update2 = ChangeLog:CreateLabel("Update 2: Kavo Hub is Now V3")
+    local update3 = ChangeLog:CreateLabel("Update 3: Added FullBright in Settings")
+
+    -- Give Item
+    local Chips = GiveItem:CreateButton({
+        Name = "Chips",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Chips")
+        end,
+    })
+    local Lollipop = GiveItem:CreateButton({
+        Name = "Lollipop",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Lollipop")
+        end,
+    })
+    local Cola = GiveItem:CreateButton({
+        Name = "Cola",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("BloxyCola")
+        end,
+    })
+    local Apple = GiveItem:CreateButton({
+        Name = "Apple",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Apple")
+        end,
+    })
+    local Bat = GiveItem:CreateButton({
+        Name = "Bat",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Bat")
+        end,
+    })
+    local MedKit = GiveItem:CreateButton({
+        Name = "MedKit",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("MedKit")
+        end,
+    })
+    local PosionPizza = GiveItem:CreateButton({
+        Name = "PosionPizza",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("EpicPizza")
+        end,
+    })
+    local Cookie = GiveItem:CreateButton({
+        Name = "Cookie",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Cookie")
+        end,
+    })
+    local Pizza = GiveItem:CreateButton({
+        Name = "Pizza",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Pizza2")
+        end,
+    })
+    local Key = GiveItem:CreateButton({
+        Name = "Key",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Key")
+        end,
+    })
+    local Plank = GiveItem:CreateButton({
+        Name = "Plank",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Plank")
+        end,
+    })
+    local Cure = GiveItem:CreateButton({
+        Name = "Cure",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Cure")
+        end,
+    })
+    local Hammer = GiveItem:CreateButton({
+        Name = "Hammer",
+        Callback = function()
+            local A_1 = true
+	        local A_2 = "Hammer"
+	        local Event = game:GetService("ReplicatedStorage").RemoteEvents.BasementWeapon
+	        Event:FireServer(A_1, A_2)
+        end,
+    })
+    local Teddy = GiveItem:CreateButton({
+        Name = "Teddy",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("TeddyBloxpin")
+        end,
+    })
+    local Sword = GiveItem:CreateButton({
+        Name = "Sword",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("LinkedSword")
+        end,
+    })
+    
+    -- Teleport
+    local Sewer = Teleport:CreateButton({
+        Name = "Teleport To Sewer",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129, 3, -125)
+        end,
+    })
+    local Store = Teleport:CreateButton({
+        Name = "Teleport To Store",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-422, 3, -121)
+        end,
+    })
+    local Basement = Teleport:CreateButton({
+        Name = "Teleport To Basement",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(71, -15, -163)
+        end,
+    })
+    local Attic = Teleport:CreateButton({
+        Name = "Teleport To Attic",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16, 35, -220)
+        end,
+    })
+    local House = Teleport:CreateButton({
+        Name = "Teleport To House",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36, 3, -200)
+        end,
+    })
+    local BossRoom = Teleport:CreateButton({
+        Name = "Teleport To BossRoom",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-39, -287, -1480)
+        end,
+    })
+
+    -- Remotes
+    local Cat = Remote:CreateButton({
+        Name = "Cat",
+        Callback = function()
+            local Target = game:GetService("ReplicatedStorage").RemoteEvents.Cattery;
+	        Target:FireServer();
+        end,
+    })
+    local KillEnemies = Remote:CreateButton({
+        Name = "Kill Bad Guy",
+        Callback = function()
+            for i,v in pairs(game.Workspace.BadGuys:GetChildren()) do
+                for i = 1, 50 do
+                    game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,10)
+                    game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,996)
+                    game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,9)
+                    game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,8)
+                    game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,996)
+                end
+            end
+        end,
+    })
+    local Heal = Remote:CreateButton({
+        Name = "Heal",
+        Callback = function()
+            local Target = game:GetService("ReplicatedStorage").RemoteEvents.Cattery;
+            Target:FireServer();
+            wait(0.0001)
+            for i = 1, 200 do
+                wait(0.0001)
+                local A_1 = "Cat"
+                local Event = game:GetService("ReplicatedStorage").RemoteEvents.Energy
+                Event:FireServer(A_1)
+            end
+        end,
+    })
+    local RemoveTools = Remote:CreateButton({
+        Name = "Remove Tools",
+        Callback = function()
+            for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                if v:IsA("Tool") then
+                    v:Destroy()
+                end
+            end
+        end,
+    })
+    local ToolDrop = Remote:CreateButton({
+        Name = "Tool Drop",
+        Callback = function()
+            while wait(1) do
+                for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                    if v:IsA("Tool") then
+                        v.CanBeDropped = true
+                    end
+                end
+            end
+        end,
+    })
+    local OpenSafe = Remote:CreateButton({
+        Name = "Open Safe",
+        Callback = function()
+            game.ReplicatedStorage.RemoteEvents.Safe:FireServer(game:GetService("Workspace").CodeNote.SurfaceGui.TextLabel.Text)
+        end,
+    })
+    local AutoSpamDoor = Remote:CreateToggle({
+        Name = "Auto Spam Door",
+        CurrentValue = false,
+        Flag = "AutoSpamDoorToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(AutoSpamDoorValue)
+            getgenv().spamdoor = AutoSpamDoorValue
+            while true do
+                if not getgenv().spamdoor then return end
+                    local A_1 = "Front"
+                    local Event = game:GetService("ReplicatedStorage").RemoteEvents.Door
+                    Event:FireServer(A_1)
+                    wait(0.1)
+            end
+        end,
+    })
+    local UnlockBaseplateDoor = Remote:CreateButton({
+        Name = "Unlock Baseplate Door",
+        Callback = function()
+            local Event = game:GetService("ReplicatedStorage").RemoteEvents.UnlockDoor
+            Event:FireServer()
+        end,
+    })  
+    local FullBrightRemote = Remote:CreateToggle({
+        Name = "FullBright",
+        CurrentValue = false,
+        Flag = "FullBrightToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        end,
+    })
+
+
+    -- Player
+    local WalkSpeed = Player:CreateSlider({
+        Name = "WalkSpeed",
+        Range = {16, 250},
+        Increment = 1,
+        Suffix = "WalkSpeed",
+        CurrentValue = 16,
+        Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(walkspeedvalue)
+            print("Changed to ".. walkspeedvalue.. " WalkSpeed")
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedvalue
+        end,
+    })
+    local JumpPower = Player:CreateSlider({
+        Name = "JumpPower",
+        Range = {50, 250},
+        Increment = 1,
+        Suffix = "Jump Power",
+        CurrentValue = 50,
+        Flag = "JumpPowerSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(jumppowervalue)
+            print("Changed to ".. jumppowervalue.. " JumpPower")
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppowervalue
+        end,
+    })
+    local TpTools = Player:CreateButton({
+        Name = "Tp Tools",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+        end,
+    })
+    local FullBrightPlayer = Player:CreateToggle({
+        Name = "FullBright",
+        CurrentValue = false,
+        Flag = "FullBrightPlayerToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        end,
+    })
+
+    local Fly = Player:CreateButton({
+        Name = "Fly (E)",
+        Callback = function()
+            Rayfield:Notify({
+                Title = "Fly (E)",
+                Content = "Press E TO Turn On/Off",
+                Duration = 6.5,
+                Image = 4483362458,
+                Actions = { -- Notification Buttons
+                    Ignore = {
+                        Name = "Okay!",
+                        Callback = function()
+                            print("The user tapped Okay!")
+                        end
+                    },
+                },
+            })
+            loadstring(game:HttpGet(('https://pastebin.com/raw/q6S4AcxJ'),true))()
+        end,
+    })
+
+    -- Settings 
+    local Close = Settings:CreateButton({
+        Name = "Kill UI",
+        Callback = function()
+            Rayfield:Destroy()  
+        end,
+    })
+
+    Rayfield:LoadConfiguration()
