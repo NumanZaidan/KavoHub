@@ -1,0 +1,150 @@
+    
+    local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+    local Window = Rayfield:CreateWindow({
+        Name = "Kavo Hub V3 | Break in (Story)(Lobby)",
+        LoadingTitle = "Loading Kavo Hub V3 | Break in (Story)(Lobby)",
+        LoadingSubtitle = "by ⃝⃝#3277",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = "KavoHub", -- Create a custom folder for your hub/game
+            FileName = "KavoHubBreakIn(Story)(Lobby)"
+        },
+            Discord = {
+                Enabled = true,
+                Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+                RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+            },
+        KeySystem = false, -- Set this to true to use our key system
+        KeySettings = {
+            Title = "Kavo Hub",
+            Subtitle = "Key System",
+            Note = "Join the discord (discord.gg/sirius)",
+            FileName = "KavoHubKey",
+            SaveKey = true,
+            GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+            Key = "kavo_hubisCool"
+        }
+    })
+
+    Rayfield:Notify({
+        Title = "KavoHub",
+        Content = "Hey. Your in Lobby there only Roles tab and Player tab if u are in the story game There alot Tabs! Thank you.",
+        Duration = 6.5,
+        Image = 4483362458,
+        Actions = { -- Notification Buttons
+            Ignore = {
+                Name = "Okay!",
+                Callback = function()
+                    print("The user tapped Okay!")
+                end
+            },
+        },
+    })
+
+    -- Tabs
+    local Roles = Window:CreateTab("Roles", 11615166394) -- Title, Image
+    local RolesSection = Roles:CreateSection("Roles")
+
+    local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
+    local PlayerSection = Player:CreateSection("Player")
+
+    local Settings = Window:CreateTab("Settings", 4859271265) -- Title, Image
+    local SettingsSection = Settings:CreateSection("Settings")
+    
+    local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
+    local ChangeLogSection = ChangeLog:CreateSection("Change Log")
+    local WhatNew = ChangeLog:CreateLabel("Whats New?")
+    local date = ChangeLog:CreateLabel("11/20/2022")
+    local update1 = ChangeLog:CreateLabel("Update 1: Kavo Hub Moved To New UI")
+    local update2 = ChangeLog:CreateLabel("Update 2: Kavo Hub is Now V3")
+    local update3 = ChangeLog:CreateLabel("Update 3: Added FullBright in Settings")
+
+    -- Roles
+    local Police = Roles:CreateButton({
+        Name = "Police",
+        Callback = function()
+            local A_1 = "Gun"
+	        local A_2 = true
+	        local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+	        Event:FireServer(A_1, A_2)
+        end,
+    })
+    local Swat = Roles:CreateButton({
+        Name = "Swat",
+        Callback = function()
+            local A_1 = "SwatGun"
+            local A_2 = true
+            local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+            Event:FireServer(A_1, A_2)
+        end,
+    })
+
+    -- Player
+    local WalkSpeed = Player:CreateSlider({
+        Name = "WalkSpeed",
+        Range = {16, 250},
+        Increment = 1,
+        Suffix = "WalkSpeed",
+        CurrentValue = 16,
+        Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(walkspeedvalue)
+            print("Changed to ".. walkspeedvalue.. " WalkSpeed")
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedvalue
+        end,
+    })
+    local JumpPower = Player:CreateSlider({
+        Name = "JumpPower",
+        Range = {50, 250},
+        Increment = 1,
+        Suffix = "Jump Power",
+        CurrentValue = 50,
+        Flag = "JumpPowerSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(jumppowervalue)
+            print("Changed to ".. jumppowervalue.. " JumpPower")
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppowervalue
+        end,
+    })
+    local TpTools = Player:CreateButton({
+        Name = "Tp Tools",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+        end,
+    })
+    local FullBright = Player:CreateToggle({
+        Name = "FullBright",
+        CurrentValue = false,
+        Flag = "FullBrightToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+        end,
+    })
+    local Fly = Player:CreateButton({
+        Name = "Fly (E)",
+        Callback = function()
+            Rayfield:Notify({
+                Title = "Fly (E)",
+                Content = "Press E TO Turn On/Off",
+                Duration = 6.5,
+                Image = 4483362458,
+                Actions = { -- Notification Buttons
+                    Ignore = {
+                        Name = "Okay!",
+                        Callback = function()
+                            print("The user tapped Okay!")
+                        end
+                    },
+                },
+            })
+            loadstring(game:HttpGet(('https://pastebin.com/raw/q6S4AcxJ'),true))()
+        end,
+    })
+
+    -- Settings 
+    local Close = Settings:CreateButton({
+        Name = "Kill UI",
+        Callback = function()
+            Rayfield:Destroy()  
+        end,
+    })
+
+    Rayfield:LoadConfiguration()
