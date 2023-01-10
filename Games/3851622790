@@ -41,7 +41,7 @@ local Window = Rayfield:CreateWindow({
     })
 
     -- Tabs
-    local Roles = Window:CreateTab("Roles", 11615166394) -- Title, Image
+    local Roles = Window:CreateTab("Roles", 11347112419) -- Title, Image
     local RolesSection = Roles:CreateSection("Roles")
 
     local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
