@@ -25,7 +25,7 @@ local Window = Rayfield:CreateWindow({
         }
     })
     
-    local Main = Window:CreateTab("Main", 11615166394) -- Title, Image
+    local Main = Window:CreateTab("Main", 11347112419) -- Title, Image
     local MainSection = Main:CreateSection("Main")
 
     local Player = Window:CreateTab("Player", 4483362458) -- Title, Image
