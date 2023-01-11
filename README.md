@@ -12,6 +12,6 @@ Break In
 If Not Supported Games Will Not works!
 
 Script ⬇️⬇️⬇️
-```
+```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/KavoHubMainGui"))()
 ```
