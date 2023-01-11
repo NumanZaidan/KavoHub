@@ -23,7 +23,10 @@ for i, x in pairs(games) do
         local Loader = loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
 		print("Kavo Hub : Kavo Hub Loaded in ".. i)
 		print("Kavo Hub : Game ID : ".. x)
-		print("Kavo Hub : Signed As ".. game.Players.LocalPlayer.Name)		
+		print("Kavo Hub : Signed As ".. game.Players.LocalPlayer.Name)
+		return		
 	end
-	print("Kavo Hub : Other Supported Game : ".. i .. " Game Id : ".. x)
 end
+
+print("Game not supported")
+notify("Kavo Hub","Didn't Found!","Game not Supported ",11310622169,"75, 100, 200")
