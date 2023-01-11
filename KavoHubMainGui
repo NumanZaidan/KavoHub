@@ -18,7 +18,6 @@ wait(1.5)
 for _, x in pairs(games) do
     if x == game.PlaceId then
         notify("Kavo Hub","Found!","Playing: ".._,11310622169,"75, 100, 200")
-        local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
     end
 end
