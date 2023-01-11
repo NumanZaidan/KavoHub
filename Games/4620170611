@@ -305,7 +305,7 @@
     local TpTools = Player:CreateButton({
         Name = "Tp Tools",
         Callback = function()
-            lloadstring(game:HttpGet("https://pastebin.com/raw/7JQQvGPF"))()
+            loadstring(game:HttpGet("https://pastebin.com/raw/7JQQvGPF"))()
         end,
     })
     local FullBrightPlayer = Player:CreateToggle({
