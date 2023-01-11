@@ -1,7 +1,7 @@
 local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Valenity/NotificationUI/main/Cheater.FunAreLeeches!"))()
-function notify(fuckyou,title,description,icon,color)
+function notify(hubname,title,description,icon,color)
     notif:message {
-        Title = fuckyou.." | <font color='rgb(".. color ..")'>"..title.."</font>",
+        Title = hubname.." | <font color='rgb(".. color ..")'>"..title.."</font>",
         Description = description,
         Icon = icon
     }
@@ -11,13 +11,19 @@ local games = {
     ["Ninja Legends"] = 3956818381,
     ["Break in (Story)(Lobby)"] = 3851622790,
     ["Break in (Story)(Game)"] = 4620170611
- }
+}
 
 notify("Kavo Hub","Initiating","Loading Kavo Hub!",11310622169,"255, 100, 100")
+print("Kavo Hub : Checking if this is Supported Game Of Game Id : ".. game.PlaceId)
 wait(1.5)
-for _, x in pairs(games) do
+for i, x in pairs(games) do
     if x == game.PlaceId then
-        notify("Kavo Hub","Found!","Playing: ".._,11310622169,"75, 100, 200")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
-    end
+        notify("Kavo Hub","Found!","Playing: "..i,11310622169,"75, 100, 200")
+		print("Kavo Hub : Game Supported Loading Kavo Hub...")
+        local Loader = loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
+		print("Kavo Hub : Kavo Hub Loaded in ".. i)
+		print("Kavo Hub : Game ID : ".. x)
+		print("Kavo Hub : Signed As ".. game.Players.LocalPlayer.Name)		
+	end
+	print("Kavo Hub : Other Supported Game : ".. i .. " Game Id : ".. x)
 end
