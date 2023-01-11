@@ -37,10 +37,8 @@ local Window = Rayfield:CreateWindow({
     local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
     local ChangeLogSection = ChangeLog:CreateSection("Change Log")
     local WhatNew = ChangeLog:CreateLabel("Whats New?")
-    local date = ChangeLog:CreateLabel("11/20/2022")
-    local update1 = ChangeLog:CreateLabel("Update 1: Kavo Hub Moved To New UI")
-    local update2 = ChangeLog:CreateLabel("Update 2: Kavo Hub is Now V3")
-    local update3 = ChangeLog:CreateLabel("Update 3: Added FullBright in Settings")
+    local date = ChangeLog:CreateLabel("11/1/2023")
+    local update1 = ChangeLog:CreateLabel("Update 1: Fixed Tp Tools")
 
     local GiveGun = Main:CreateDropdown({
         Name = "Give Guns",
@@ -117,7 +115,7 @@ local Window = Rayfield:CreateWindow({
     local TpTools = Player:CreateButton({
         Name = "Tp Tools",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Click%20TP%20Tool.lua"))()
+            loadstring(game:HttpGet("https://pastebin.com/raw/7JQQvGPF"))()
         end,
     })
     local Fly = Player:CreateButton({
