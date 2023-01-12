@@ -10,8 +10,13 @@ Prison Life
 Break In
 
 If Not Supported Games Will Not works!
+Script Securred ⬇️⬇️⬇️
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/CheckMateKavoHub/main/CheckMate"))()
+```
+Or
 
-Script ⬇️⬇️⬇️
+Script Not Secured⬇️⬇️⬇️
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/KavoHubMainGui"))()
 ```
