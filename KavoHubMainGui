@@ -12,7 +12,7 @@ local games = {
     ["Break in (Story)(Lobby)"] = 3851622790,
     ["Break in (Story)(Game)"] = 4620170611
 }
-local KavoHubNotificationConsole = [[ 
+local KavoHubGameSupportedNotificationConsole = [[ 
   ____________________________________________________
   |  _  __     __      ______    _    _ _    _ ____   | Thank you For Using Kavo Hub!
   | | |/ /    /\ \    / / __ \  | |  | | |  | |  _ \  | 
@@ -22,6 +22,7 @@ local KavoHubNotificationConsole = [[
   | |_|\_\/_/    \_\/   \____/  |_|  |_|\____/|____/  | 
   |___________________________________________________| Please Report Any Problems or Error To DarthVader#3277 Thanks. ]]
   
+  
 notify("Kavo Hub","Initiating","Loading Kavo Hub!",11310622169,"255, 100, 100")
 print("Kavo Hub : Checking if this is Supported Game Of Game Id : ".. game.PlaceId)
 wait(1.5)
@@ -30,7 +31,7 @@ for i, x in pairs(games) do
         notify("Kavo Hub","Found!","Playing: "..i,11310622169,"75, 100, 200")
 		print("Kavo Hub : Game Supported Loading Kavo Hub...")
         	local Loader = loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
-		print(KavoHubNotificationConsole)
+		print(KavoHubGameSupportedNotificationConsole)
 		print("Kavo Hub : Kavo Hub Loaded in ".. i)
 		print("Kavo Hub : Game ID : ".. x)
 		print("Kavo Hub : Signed As ".. game.Players.LocalPlayer.Name)
