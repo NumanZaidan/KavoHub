@@ -33,7 +33,7 @@ for i, x in pairs(games) do
 		print("Kavo Hub : Game Supported Loading Kavo Hub...")
         	local Loader = loadstring(game:HttpGet("https://raw.githubusercontent.com/NumanZaidan/KavoHub/main/Games/"..x))()
 		print(KavoHubGameSupportedNotificationConsole)
-		print("Kavo Hub : Kavo Hub Loaded in ".. i)
+		print("Kavo Hub : Loaded in ".. i)
 		print("Kavo Hub : Game ID : ".. x)
 		print("Kavo Hub : Signed As ".. game.Players.LocalPlayer.Name)
 		return		
