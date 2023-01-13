@@ -20,7 +20,8 @@ local KavoHubGameSupportedNotificationConsole = [[
   | |  <    / /\ \ \/ /| |  | | |  __  | |  | |  _ <  |    DarthVader#3277 -- Scripter
   | | . \  / ____ \  / | |__| | | |  | | |__| | |_) | |    egg#0003 -- Rayfield Library
   | |_|\_\/_/    \_\/   \____/  |_|  |_|\____/|____/  | 
-  |___________________________________________________| Please Report Any Problems or Error To DarthVader#3277 Thanks. ]]
+  |___________________________________________________| Please Report Any Problems or Error To DarthVader#3277 Thanks. 
+  ]]
   
   
 notify("Kavo Hub","Initiating","Loading Kavo Hub!",11310622169,"255, 100, 100")
