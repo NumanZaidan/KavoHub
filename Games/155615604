@@ -37,18 +37,24 @@ local Window = Rayfield:CreateWindow({
     local ChangeLog = Window:CreateTab("Change Log", 4483362458) -- Title, Image
     local ChangeLogSection = ChangeLog:CreateSection("Change Log")
     local WhatNew = ChangeLog:CreateLabel("Whats New?")
-    local date = ChangeLog:CreateLabel("11/1/2023")
-    local update1 = ChangeLog:CreateLabel("Update 1: Fixed Tp Tools")
-
+    local date = ChangeLog:CreateLabel("5/3/2023")
+    local update1 = ChangeLog:CreateLabel("Update 1: Fixed Give Gun in Prison Life Script Because it didn't give you the item")
+	
     local GiveGun = Main:CreateDropdown({
         Name = "Give Guns",
         Options = {"M9", "Remington 870", "AK-47"},
         CurrentOption = "M9",
         Flag = "GiveGunDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(GiveGun)
-            local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[GiveGun].ITEMPICKUP
-            local Event = game:GetService("Workspace").Remote.ItemHandler
-            Event:InvokeServer(A_1)
+			local oldcframe = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+			local args = {
+    			[1] = workspace:WaitForChild("Prison_ITEMS"):WaitForChild("giver"):WaitForChild(GiveGun):WaitForChild("ITEMPICKUP")
+			}
+			local Event = workspace:WaitForChild("Remote"):WaitForChild("ItemHandler")
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = args[1].CFrame
+			wait(0.1)
+			Event:InvokeServer(unpack(args))
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = oldcframe
         end,
     
     })
