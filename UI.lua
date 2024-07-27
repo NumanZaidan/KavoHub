@@ -1,6 +1,3 @@
--- [Original by Hyperion : CSGO Cheat]
--- [[https://hyperion.vip/]]
-
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
