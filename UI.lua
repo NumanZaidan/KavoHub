@@ -574,7 +574,7 @@ function NoHyper.new(WindowName,WindowLogo,WindowDescription)
 	UICorner_3.Parent = TickUI
 
   function HyperWindow:Delete()
-        NoHyperUI:Destroy()
+        return NoHyperUI:Destroy()
   end
 
 	function HyperWindow:NewTab(TabName:string,TabIcon:string)
