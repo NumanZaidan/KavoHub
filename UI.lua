@@ -3,12 +3,13 @@ if not game:IsLoaded() then
 end
 
 local LocalPlayer = game:GetService('Players').LocalPlayer;
-local Tween or TweenService = game:GetService('TweenService')
+local Tween = game:GetService('TweenService')
 local Run = game:GetService('RunService')
 local Core = (gethui and gethui()) or game:FindFirstChild'CoreGui' or LocalPlayer.PlayerGui;
 local UIS = game:GetService('UserInputService')
 local TextService = game:GetService('TextService')
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
+local TweenService = Tween
 
 local function cretate_button(asd)
 	local button=Instance.new('TextButton')
