@@ -2185,7 +2185,7 @@ function NoHyper:Notification()
 
 		Notify.Name = "Notify"
 		Notify.Parent = MainFrame
-		Notify.BackgroundColor3 = NoHyper.Themes.SECTION
+		Notify.BackgroundColor3 = NoHyper.Theme.SECTION
 		Notify.BackgroundTransparency = 0.100
 		Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Notify.BorderSizePixel = 0
@@ -2195,7 +2195,7 @@ function NoHyper:Notification()
 		UICorner.CornerRadius = UDim.new(0, 3)
 		UICorner.Parent = Notify
 
-		UIStroke.Color = NoHyper.Themes.STROKE
+		UIStroke.Color = NoHyper.Theme.STROKE
 		UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		UIStroke.Parent = Notify
 
@@ -2212,7 +2212,7 @@ function NoHyper:Notification()
 		IconImage.ZIndex = 5
 		IconImage.Image = "rbxassetid://"..tostring(iconId)
 		IconImage.ImageTransparency=1
-		IconImage.ImageColor3=NoHyper.Themes.MAIN
+		IconImage.ImageColor3=NoHyper.Theme.MAIN
 
 		HeadTitle.Name = "HeadTitle"
 		HeadTitle.Parent = Notify
@@ -2252,7 +2252,7 @@ function NoHyper:Notification()
 		Countdown.Name = "Countdown"
 		Countdown.Parent = Notify
 		Countdown.AnchorPoint = Vector2.new(0, 1)
-		Countdown.BackgroundColor3 = NoHyper.Themes.MAIN
+		Countdown.BackgroundColor3 = NoHyper.Theme.MAIN
 		Countdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Countdown.BorderSizePixel = 0
 		Countdown.Position = UDim2.new(0, 0, 1.07500005, 0)
