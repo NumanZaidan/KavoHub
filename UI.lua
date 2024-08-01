@@ -3,7 +3,7 @@ if not game:IsLoaded() then
 end
 
 local LocalPlayer = game:GetService('Players').LocalPlayer;
-local Tween = game:GetService('TweenService')
+local Tween or TweenService = game:GetService('TweenService')
 local Run = game:GetService('RunService')
 local Core = (gethui and gethui()) or game:FindFirstChild'CoreGui' or LocalPlayer.PlayerGui;
 local UIS = game:GetService('UserInputService')
@@ -2126,6 +2126,204 @@ function NoHyper.new(WindowName,WindowLogo,WindowDescription)
 	end)
 
 	return HyperWindow
+end
+
+function NoHyper:Notification()
+	local Notification_ = {
+		MaxNotifications = 5
+	}
+
+	local Notification = Instance.new("ScreenGui")
+	local MainFrame = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+
+	Notification.Name = "Notification"
+	Notification.Parent = CoreGui
+	Notification.ResetOnSpawn = false
+	Notification.ZIndexBehavior=Enum.ZIndexBehavior.Global
+	Notification.IgnoreGuiInset=true
+	ProtectGui(Notification)
+
+	MainFrame.Name = "MainFrame"
+	MainFrame.Parent = Notification
+	MainFrame.AnchorPoint = Vector2.new(1, 1)
+	MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	MainFrame.BackgroundTransparency = 1.000
+	MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MainFrame.BorderSizePixel = 0
+	MainFrame.Position = UDim2.new(0.99000001, 0, 0.99000001, 0)
+	MainFrame.Size = UDim2.new(0.35, 0, 0.100000001, 0)
+
+	UIListLayout.Parent = MainFrame
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	UIListLayout.Padding = UDim.new(0, 4)
+	function Notification_:Notify(Type,Head,Body,countdown)
+		if (#MainFrame:GetChildren()) > Notification_.MaxNotifications then
+			return false
+		end
+
+		local typeicon = {
+			['error'] = "9072920609",
+			['success'] = "9073052584",
+			['warning'] = "9072448788",
+			['info'] = "9072944922"
+		}
+
+		local iconId = typeicon[tostring(Type or "error"):lower()]
+
+		local Notify = Instance.new("Frame")
+		local UICorner = Instance.new("UICorner")
+		local UIStroke = Instance.new("UIStroke")
+		local IconImage = Instance.new("ImageLabel")
+		local HeadTitle = Instance.new("TextLabel")
+		local BodyTitle = Instance.new("TextLabel")
+		local Countdown = Instance.new("Frame")
+		local CloseButton = Instance.new("ImageButton")
+
+		Notify.Name = "Notify"
+		Notify.Parent = MainFrame
+		Notify.BackgroundColor3 = NEVERLOSE.Themes.SectionColor
+		Notify.BackgroundTransparency = 0.100
+		Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Notify.BorderSizePixel = 0
+		Notify.ClipsDescendants = true
+		Notify.Size = UDim2.new(0.75,0,0,0)
+
+		UICorner.CornerRadius = UDim.new(0, 3)
+		UICorner.Parent = Notify
+
+		UIStroke.Color = NoHyper.Themes.StrokeColor
+		UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+		UIStroke.Parent = Notify
+
+		IconImage.Name = "IconImage"
+		IconImage.Parent = Notify
+		IconImage.AnchorPoint = Vector2.new(0.5, 0.5)
+		IconImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		IconImage.BackgroundTransparency = 1.000
+		IconImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		IconImage.BorderSizePixel = 0
+		IconImage.Position = UDim2.new(0.0549999997, 0, 0.5, 0)
+		IconImage.Size = UDim2.new(0.850000024, 0, 0.850000024, 0)
+		IconImage.SizeConstraint = Enum.SizeConstraint.RelativeYY
+		IconImage.ZIndex = 5
+		IconImage.Image = "rbxassetid://"..tostring(iconId)
+		IconImage.ImageTransparency=1
+		IconImage.ImageColor3=NoHyper.Themes.MainColor
+
+		HeadTitle.Name = "HeadTitle"
+		HeadTitle.Parent = Notify
+		HeadTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		HeadTitle.BackgroundTransparency = 1.000
+		HeadTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		HeadTitle.BorderSizePixel = 0
+		HeadTitle.Position = UDim2.new(0.130612239, 0, 0.0750002638, 0)
+		HeadTitle.Size = UDim2.new(0.738775492, 0, 0.369384199, 0)
+		HeadTitle.ZIndex = 7
+		HeadTitle.Font = Enum.Font.SourceSansSemibold
+		HeadTitle.Text = Head or "Head"
+		HeadTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		HeadTitle.TextScaled = true
+		HeadTitle.TextSize = 14.000
+		HeadTitle.TextWrapped = true
+		HeadTitle.TextXAlignment = Enum.TextXAlignment.Left
+		HeadTitle.TextTransparency=1
+		BodyTitle.Name = "BodyTitle"
+		BodyTitle.Parent = Notify
+		BodyTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		BodyTitle.BackgroundTransparency = 1.000
+		BodyTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		BodyTitle.BorderSizePixel = 0
+		BodyTitle.Position = UDim2.new(0.130612239, 0, 0.444384605, 0)
+		BodyTitle.Size = UDim2.new(0.738775492, 0, 0.47554332, 0)
+		BodyTitle.ZIndex = 7
+		BodyTitle.Font = Enum.Font.SourceSansSemibold
+		BodyTitle.Text = Body or "Body"
+		BodyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		BodyTitle.TextScaled = true
+		BodyTitle.TextSize = 14.000
+		BodyTitle.TextTransparency = 1
+		BodyTitle.TextWrapped = true
+		BodyTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+		Countdown.Name = "Countdown"
+		Countdown.Parent = Notify
+		Countdown.AnchorPoint = Vector2.new(0, 1)
+		Countdown.BackgroundColor3 = NEVERLOSE.Themes.MainColor
+		Countdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Countdown.BorderSizePixel = 0
+		Countdown.Position = UDim2.new(0, 0, 1.07500005, 0)
+		Countdown.Size = UDim2.new(0, 0, 0.100000001, 0)
+		Countdown.ZIndex = 6
+		Countdown.BackgroundTransparency=1
+
+		CloseButton.Name = "CloseButton"
+		CloseButton.Parent = Notify
+		CloseButton.AnchorPoint = Vector2.new(0.5, 0.5)
+		CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		CloseButton.BackgroundTransparency = 1.000
+		CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CloseButton.BorderSizePixel = 0
+		CloseButton.Position = UDim2.new(0.939999998, 0, 0.5, 0)
+		CloseButton.Size = UDim2.new(0.550000012, 0, 0.550000012, 0)
+		CloseButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+		CloseButton.ZIndex = 5
+		CloseButton.Image = "rbxassetid://9127564477"
+		CloseButton.ScaleType = Enum.ScaleType.Fit
+		CloseButton.ImageTransparency=1
+		
+		local currenttime = 0.3
+		local function start_vu()
+			TweenService:Create(Notify,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quint),{Size=UDim2.new(0.99,0,0.75,0)}):Play()
+			TweenService:Create(UIStroke,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{Transparency=0}):Play()
+			TweenService:Create(HeadTitle,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{TextTransparency=0}):Play()
+			TweenService:Create(BodyTitle,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{TextTransparency=0.3}):Play()
+			TweenService:Create(Countdown,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{BackgroundTransparency=0}):Play()
+			TweenService:Create(IconImage,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{ImageTransparency=0}):Play()
+			TweenService:Create(CloseButton,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{ImageTransparency=0}):Play()
+		end
+
+
+		local function end_vu()
+			local trantween = TweenService:Create(Notify,TweenInfo.new(currenttime,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{Size=UDim2.new(0.75,0,0,0)})
+			TweenService:Create(UIStroke,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{Transparency=1}):Play()
+			TweenService:Create(HeadTitle,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{TextTransparency=1}):Play()
+			TweenService:Create(BodyTitle,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{TextTransparency=1}):Play()
+			TweenService:Create(Countdown,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{BackgroundTransparency=1}):Play()
+			TweenService:Create(IconImage,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{ImageTransparency=1}):Play()
+			TweenService:Create(CloseButton,TweenInfo.new(currenttime/2,Enum.EasingStyle.Quad),{ImageTransparency=1}):Play()
+			trantween:Play()
+
+			trantween.Completed:Connect(function()
+				Notify:Destroy()
+			end)
+		end
+
+		start_vu()
+
+		task.spawn(function()
+			CloseButton.MouseButton1Click:Connect(end_vu)
+
+			if countdown then
+
+				pcall(function()
+					task.wait(1.3)
+					local tween = TweenService:Create(Countdown,TweenInfo.new(tonumber(countdown) or 3,Enum.EasingStyle.Linear),{Size=UDim2.new(1,0,0.1,0)
+					})
+
+					tween:Play()
+
+					tween.Completed:Wait()
+					task.wait(0.5)
+					end_vu()
+				end)
+			end
+		end)
+	end
+
+	return Notification_
 end
 
 function NoHyper:LoopUpdate()
