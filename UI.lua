@@ -2326,3 +2326,16 @@ function NoHyper:Notification()
 
 	return Notification_
 end
+
+function NoHyper:LoopUpdate()
+	task.spawn(function()
+		while true do task.wait()
+			pcall(function()
+				for i,v in ipairs(NoHyper.AutoUpdate) do task.wait()
+					pcall(v)
+				end
+			end)
+		end
+	end)
+end
+return NoHyper;
