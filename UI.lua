@@ -6,6 +6,7 @@ local LocalPlayer = game:GetService('Players').LocalPlayer;
 local Tween = game:GetService('TweenService')
 local Run = game:GetService('RunService')
 local Core = (gethui and gethui()) or game:FindFirstChild'CoreGui' or LocalPlayer.PlayerGui;
+local CoreGui = game:FindFirstChild('CoreGui') or LocalPlayer.PlayerGui;
 local UIS = game:GetService('UserInputService')
 local TextService = game:GetService('TextService')
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
@@ -2139,7 +2140,7 @@ function NoHyper:Notification()
 	local UIListLayout = Instance.new("UIListLayout")
 
 	Notification.Name = "Notification"
-	Notification.Parent = Core
+	Notification.Parent = CoreGui
 	Notification.ResetOnSpawn = false
 	Notification.ZIndexBehavior=Enum.ZIndexBehavior.Global
 	Notification.IgnoreGuiInset=true
