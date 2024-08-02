@@ -2328,6 +2328,232 @@ function NoHyper:Notification()
 
 	return Notification_
 end
+function NoHyper:KeySystem(TitleName,LinkKey,callback)
+	local Functions = {}
+
+	local ScreenGui = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local Frame_2 = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local Title = Instance.new("TextLabel")
+	local PasteKey = Instance.new("TextBox")
+	local UIStroke = Instance.new("UIStroke")
+	local UICorner_3 = Instance.new("UICorner")
+	local CopyKey = Instance.new("TextButton")
+	local UIStroke_2 = Instance.new("UIStroke")
+	local UICorner_4 = Instance.new("UICorner")
+	local Submit = Instance.new("TextButton")
+	local UIStroke_3 = Instance.new("UIStroke")
+	local UICorner_5 = Instance.new("UICorner")
+
+	ScreenGui.Parent = CoreGui
+	ScreenGui.ResetOnSpawn = false
+	ScreenGui.IgnoreGuiInset=true
+	ScreenGui.ZIndexBehavior=Enum.ZIndexBehavior.Global
+
+	Frame.Parent = ScreenGui
+	Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	Frame.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+	Frame.BackgroundTransparency = 0.100
+	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Frame.Size = UDim2.new(0, 0, 0, 0)
+
+	UICorner.Parent = Frame
+
+	Frame_2.Parent = Frame
+	Frame_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+	Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Frame_2.BorderSizePixel = 0
+	Frame_2.Position = UDim2.new(-0.00109238492, 0, 0.081521742, 0)
+	Frame_2.Size = UDim2.new(1, 0, 0.913586974, 0)
+	Frame_2.ZIndex = 2
+
+	UICorner_2.CornerRadius = UDim.new(0, 2)
+	UICorner_2.Parent = Frame_2
+
+	Title.Name = "Title"
+	Title.Parent = Frame
+	Title.AnchorPoint = Vector2.new(0.5, 0)
+	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1.000
+	Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Title.BorderSizePixel = 0
+	Title.Position = UDim2.new(0.5, 0, 0.143000007, 0)
+	Title.Size = UDim2.new(0.899999976, 0, 0.150000006, 0)
+	Title.ZIndex = 4
+	Title.Font = Enum.Font.SourceSansBold
+	Title.Text = TitleName or "Key System"
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextScaled = true
+	Title.TextSize = 14.000
+	Title.TextStrokeColor3 = Color3.fromRGB(0, 255, 255)
+	Title.TextStrokeTransparency = 0.860
+	Title.TextWrapped = true
+
+	PasteKey.Name = "PasteKey"
+	PasteKey.Parent = Frame
+	PasteKey.AnchorPoint = Vector2.new(0.5, 0)
+	PasteKey.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+	PasteKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	PasteKey.BorderSizePixel = 0
+	PasteKey.Position = UDim2.new(0.50000006, 0, 0.373641312, 0)
+	PasteKey.Size = UDim2.new(0.899999976, 0, 0.25, 0)
+	PasteKey.ZIndex = 4
+	PasteKey.ClearTextOnFocus = false
+	PasteKey.Font = Enum.Font.SourceSansSemibold
+	PasteKey.Text = ""
+	PasteKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+	PasteKey.TextScaled = true
+	PasteKey.TextSize = 14.000
+	PasteKey.TextTransparency = 0.390
+	PasteKey.TextWrapped = true
+
+	UIStroke.Color = Color3.fromRGB(50, 50, 50)
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke.Parent = PasteKey
+
+	UICorner_3.CornerRadius = UDim.new(0, 3)
+	UICorner_3.Parent = PasteKey
+
+	CopyKey.Name = "CopyKey"
+	CopyKey.Parent = Frame
+	CopyKey.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+	CopyKey.BackgroundTransparency = 0.200
+	CopyKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CopyKey.BorderSizePixel = 0
+	CopyKey.Position = UDim2.new(0.0489396416, 0, 0.754076123, 0)
+	CopyKey.Size = UDim2.new(0.42039147, 0, 0.182608709, 0)
+	CopyKey.ZIndex = 5
+	CopyKey.Font = Enum.Font.SourceSansBold
+	CopyKey.Text = "Get Key"
+	CopyKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+	CopyKey.TextScaled = true
+	CopyKey.TextSize = 14.000
+	CopyKey.TextStrokeColor3 = Color3.fromRGB(0, 255, 247)
+	CopyKey.TextStrokeTransparency = 0.760
+	CopyKey.TextWrapped = true
+
+	UIStroke_2.Color = Color3.fromRGB(50, 50, 50)
+	UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke_2.Parent = CopyKey
+
+	UICorner_4.CornerRadius = UDim.new(0, 3)
+	UICorner_4.Parent = CopyKey
+
+	Submit.Name = "Submit"
+	Submit.Parent = Frame
+	Submit.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+	Submit.BackgroundTransparency = 0.200
+	Submit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Submit.BorderSizePixel = 0
+	Submit.Position = UDim2.new(0.517944396, 0, 0.754076123, 0)
+	Submit.Size = UDim2.new(0.428548098, 0, 0.182608709, 0)
+	Submit.ZIndex = 5
+	Submit.Font = Enum.Font.SourceSansBold
+	Submit.Text = "Submit"
+	Submit.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Submit.TextScaled = true
+	Submit.TextSize = 14.000
+	Submit.TextStrokeColor3 = Color3.fromRGB(0, 255, 247)
+	Submit.TextStrokeTransparency = 0.760
+	Submit.TextWrapped = true
+
+	UIStroke_3.Color = Color3.fromRGB(50, 50, 50)
+	UIStroke_3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke_3.Parent = Submit
+
+	UICorner_5.CornerRadius = UDim.new(0, 3)
+	UICorner_5.Parent = Submit
+
+	TweenService:Create(Frame,TweenInfo.new(0.4,Enum.EasingStyle.Quint),{Size=UDim2.new(0.25, 0, 0.25, 0)}):Play()
+
+	CopyKey.MouseButton1Click:Connect(function()
+		pcall(function()
+			setclipboard(tostring(LinkKey))
+		end)
+
+		pcall(function()
+			toclipboard(tostring(LinkKey))
+		end)
+	end)
+
+	local asd=false
+
+	local function_call
+
+	Submit.MouseButton1Click:Connect(function()
+		if asd then
+			return
+		end
+
+		asd=true
+		if callback(PasteKey.Text) then
+			TweenService:Create(Frame,TweenInfo.new(0.4,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut),{Size=UDim2.new(0,0,0,0)}):Play()
+			function_call=function_call or function()
+
+			end
+
+			task.spawn(function()
+				task.wait(.45)
+				ScreenGui:Destroy()
+			end)
+
+			function_call(PasteKey.Text)
+
+			return
+
+		else
+			PasteKey.Text=''
+
+		end
+
+		asd=false
+	end)
+
+	task.spawn(function()
+		local dragToggle = nil
+		local dragSpeed = 0.2
+		local dragStart = nil
+		local startPos = nil
+
+		local function updateInput(input)
+			local delta = input.Position - dragStart
+			local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+				startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			game:GetService('TweenService'):Create(Frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+		end
+
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and not toggle_valu then 
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+
+		InputService.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				if dragToggle then
+					updateInput(input)
+				end
+			end
+		end)
+	end)
+
+	function Functions:Callback(func)
+		function_call=func
+	end
+
+	return Functions
+end
 
 function NoHyper:LoopUpdate()
 	task.spawn(function()
