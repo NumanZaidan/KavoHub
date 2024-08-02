@@ -2139,7 +2139,7 @@ function NoHyper:Notification()
 	local UIListLayout = Instance.new("UIListLayout")
 
 	Notification.Name = "Notification"
-	Notification.Parent = CoreGui
+	Notification.Parent = Core
 	Notification.ResetOnSpawn = false
 	Notification.ZIndexBehavior=Enum.ZIndexBehavior.Global
 	Notification.IgnoreGuiInset=true
