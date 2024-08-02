@@ -2161,6 +2161,7 @@ function NoHyper:Notification()
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
 	UIListLayout.Padding = UDim.new(0, 4)
+	print("Sussess")
 	function Notification_:Notify(Type,Head,Body,countdown)
 		if (#MainFrame:GetChildren()) > Notification_.MaxNotifications then
 			return false
