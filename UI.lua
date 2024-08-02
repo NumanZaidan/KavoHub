@@ -2539,7 +2539,7 @@ function NoHyper:KeySystem(TitleName,LinkKey,callback)
 			end
 		end)
 
-		InputService.InputChanged:Connect(function(input)
+		UIS.InputChanged:Connect(function(input)
 			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 				if dragToggle then
 					updateInput(input)
